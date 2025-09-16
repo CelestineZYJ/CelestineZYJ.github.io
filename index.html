@@ -9,15 +9,43 @@
 <link rel="stylesheet" href="jemdoc.css" type="text/css" />
 <title>Yuji Zhang's Homepage</title>
 
-<!-- ===== Publications thumbnails styles ===== -->
+<!-- ===== Publications thumbnails styles + Lightbox ===== -->
 <style type="text/css">
 ul.pub-list { list-style: none; margin: 0; padding: 0; }
 ul.pub-list > li { margin: 0; padding: 0; }
 .pub-item { display: flex; align-items: flex-start; gap: 12px; margin: 12px 0; }
-.pub-thumb { width: 140px; height: auto; border: 1px solid #eee; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.08); flex: 0 0 auto; }
+.pub-thumb { width: 140px; height: auto; border: 1px solid #eee; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.08); flex: 0 0 auto; cursor: zoom-in; }
 .pub-text h3 { margin: 0 0 4px 0; font-size: 18px; line-height: 1.35; border-bottom: none; }
 .pub-text p { margin: 2px 0 0 0; line-height: 1.4; }
 @media (max-width:700px){ .pub-thumb{ width:90px; } .pub-item{ gap:10px; } }
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,.85);
+  display: none;              /* default hidden; toggled by .show */
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+.lightbox .close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: #fff;
+  font-size: 28px;
+  line-height: 28px;
+  text-decoration: none;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -287,6 +315,59 @@ ul.pub-list > li { margin: 0; padding: 0; }
     </figcaption>
   </figure>
 </div>
+
+<!-- ===== Lightbox container + script ===== -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <a href="#" class="close" aria-label="Close">&#215;</a>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+(function () {
+  var box = document.getElementById('lightbox');
+  var big = document.getElementById('lightbox-img');
+
+  function openLightbox(src, alt) {
+    big.setAttribute('src', src);
+    big.setAttribute('alt', alt || '');
+    box.className = 'lightbox show';
+    box.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    box.className = 'lightbox';
+    box.setAttribute('aria-hidden', 'true');
+    big.setAttribute('src', '');
+  }
+
+  // Delegate clicks: open on thumbnail; close on overlay/close button
+  document.addEventListener('click', function (e) {
+    var t = e.target || e.srcElement;
+
+    // close actions
+    if (t && (t.id === 'lightbox' || (t.className && t.className === 'close'))) {
+      if (e.preventDefault) e.preventDefault(); else e.returnValue = false;
+      closeLightbox();
+      return;
+    }
+
+    // open when clicking a publication thumbnail
+    if (t && t.className && (' ' + t.className + ' ').indexOf(' pub-thumb ') > -1) {
+      if (e.preventDefault) e.preventDefault(); else e.returnValue = false;
+      var full = t.getAttribute('data-full') || t.getAttribute('src');
+      openLightbox(full, t.getAttribute('alt'));
+    }
+  }, false);
+
+  // ESC key to close
+  document.addEventListener('keydown', function (e) {
+    var key = e.key || e.keyCode;
+    if (key === 'Escape' || key === 27) closeLightbox();
+  }, false);
+})();
+//]]>
+</script>
 
 </body>
 </html>
