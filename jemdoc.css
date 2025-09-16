@@ -63,9 +63,9 @@
 	font-weight: 700;
 	src: url(fonts/lato/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  /* latin-ext */
-  @font-face {
+}
+/* latin-ext */
+@font-face {
 	font-family: 'Lato';
 	font-style: normal;
 	font-weight: 900;
@@ -80,7 +80,7 @@
 	src: url(fonts/lato/S6u9w4BMUTPHh50XSwiPGQ3q5d0.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-  
+
 table#tlayout {
     border: none;
     border-collapse: separate;
@@ -331,7 +331,6 @@ li p, dd p {
 	margin-bottom: 0.3em;
 }
 
-
 ol ol {
 	list-style-type: lower-alpha;
 }
@@ -389,7 +388,6 @@ div.codeblock > div.blockcontent {
 span.pycommand {
 	color: #000070;
 }
-
 span.statement {
 	color: #008800;
 }
@@ -440,7 +438,6 @@ img.eq {
 	padding-right: 0.1em;
 	margin: 0;
 }
-
 img.eqwl {
 	padding-left: 2em;
 	padding-top: 0.6em;
@@ -466,4 +463,76 @@ img {
 table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
+}
+
+/* ===== Publications with thumbnails ===== */
+ul.pub-list { list-style: none; margin: 0; padding: 0; }
+ul.pub-list > li { margin: 0; padding: 0; }
+
+.pub-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.pub-thumb {
+  width: 120px;           /* 统一宽度：改这里，例如 110/140 */
+  height: auto;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08);
+  flex: 0 0 auto;         /* 防止被挤压变形 */
+  cursor: zoom-in;        /* 提示可放大 */
+}
+
+.pub-text h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;        /* 与全站 h3 一致 */
+  line-height: 1.35;
+  border-bottom: none;    /* 保持无下边框 */
+}
+
+.pub-text p {
+  margin: 2px 0 0 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  .pub-thumb { width: 90px; } /* 移动端更小 */
+  .pub-item  { gap: 10px; }
+}
+
+/* ===== Lightbox (点击缩略图放大) ===== */
+.lightbox {
+  position: fixed;
+  z-index: 9999;
+  inset: 0; /* top/right/bottom/left:0 */
+  background: rgba(0,0,0,.85);
+  display: none;                 /* 默认隐藏，由 JS 切换 .show */
+  align-items: center;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+}
+
+.lightbox.show { display: flex; }
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: #fff;
+  font-size: 28px;
+  line-height: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
 }
