@@ -20,6 +20,7 @@
   --update-bg:#eef4fb;
   --update-border:#d7e3ef;
   --frame-gap:clamp(44px,5vw,64px);
+  --right-gap:clamp(53px,6vw,77px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -40,7 +41,8 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 .nav-inner{
   width:auto;
   height:104px;
-  margin:0 var(--frame-gap);
+  margin-left:var(--frame-gap);
+  margin-right:var(--right-gap);
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -56,7 +58,7 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 .nav-links{display:flex;gap:44px;align-items:center}
 .nav-links a{font-size:20px;color:#77818a;font-weight:430}
 
-.page{width:auto;margin:0 var(--frame-gap);padding:58px 0 88px}
+.page{width:auto;margin-left:var(--frame-gap);margin-right:var(--right-gap);padding:58px 0 88px}
 .layout{display:grid;grid-template-columns:224px minmax(0,1fr);gap:var(--frame-gap);align-items:start}
 
 /* left identity column */
@@ -184,6 +186,20 @@ h1.section-title,h2.section-title{
           <svg class="icon-svg sky" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-7.43L5.56 22H2.45l7.24-8.28L1.9 2h6.41l4.43 6.74L18.9 2Zm-1.1 18h1.73L7.37 3.9H5.5L17.8 20Z"/></svg>
           <a href="https://twitter.com/Yuji_Zhang_NLP">X (Twitter)</a>
         </div>
+        <div class="side-link">
+          <svg class="icon-svg in" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.6 9.73h2.68V18H5.6V9.73Zm4.36 0h2.57v1.13h.04c.36-.68 1.23-1.39 2.53-1.39 2.71 0 3.21 1.78 3.21 4.09V18h-2.68v-3.94c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08V18H9.96V9.73Z"/></svg>
+          <a href="https://www.linkedin.com/in/yuji-zhang-29870b2b0">LinkedIn</a>
+        </div>
+        <div class="side-link">
+          <svg class="icon-svg gh" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.93c.58.11.79-.25.79-.56l-.02-1.98c-3.2.7-3.88-1.54-3.88-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.72.08-.71.08-.71 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.56-.29-5.26-1.28-5.26-5.71 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a10.9 10.9 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.44-2.7 5.41-5.28 5.69.41.36.78 1.08.78 2.18l-.01 3.23c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          <a href="https://github.com/CelestineZYJ">Github</a>
+        </div>
+        <div class="side-link">
+          <svg class="icon-svg gs" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3c-2.2 0-4 1.8-4 4v10c0 2.2 1.8 4 4 4h6a1 1 0 0 0 1-1v-9.59a1 1 0 0 0-.29-.7l-4.42-4.42A1 1 0 0 0 13.59 5H12Zm2 2.41L16.59 8H14V5.41ZM6 7a6 6 0 0 1 6-6h1.59c.8 0 1.56.32 2.12.88l4.41 4.41c.56.56.88 1.32.88 2.12V20a3 3 0 0 1-3 3h-6a6 6 0 0 1-6-6V7Zm6.1 3.25c-1.83 0-3.12 1.38-3.12 3.25 0 1.88 1.36 3.25 3.18 3.25 1.55 0 2.8-.83 2.99-2.39h-2.96V13h4.68c.05.24.08.5.08.84 0 2.68-1.8 4.91-4.78 4.91-2.74 0-5.03-2.17-5.03-5.25s2.28-5.25 5-5.25c1.49 0 2.45.58 3.21 1.28l-1.22 1.18c-.37-.35-.98-.76-2.03-.76Z"/></svg>
+          <a href="https://scholar.google.com/citations?hl=en&user=meTtEDcAAAAJ">Google Scholar</a>
+        </div>
+      </div>
+
     </aside>
 
     <main class="content">
@@ -237,7 +253,7 @@ h1.section-title,h2.section-title{
         <h2 class="section-title">Teaching & Service</h2>
         <div class="soft-grid">
           <div class="softbox"><strong>Teaching</strong><ul><li>CUNY CSI Programming Language Lab, Fall 2026</li><li>UIUC CS 591, 2025–2026</li></ul></div>
-          <div class="softbox"><strong>Professional Service</strong><ul><li>Area Chair: ACL 2026, EMNLP 2026</li><li>Workshop organizer: Knowledgeable Foundation Models</li><li>Reviewer: ICLR, ACL, EMNLP, NAACL, KDD</li></ul></div>
+          <div class="softbox"><strong>Professional Service</strong><ul><li>Area Chair: ACL 2026, EMNLP 2026</li><li>Workshop organizer: Knowledgeable Foundation Models</li><li>Reviewer: NeurIPS, ICLR, ACL, EMNLP, NAACL, KDD</li></ul></div>
         </div>
       </section>
 
