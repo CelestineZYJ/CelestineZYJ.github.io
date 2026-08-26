@@ -36,7 +36,7 @@ body{
 a{color:var(--link);text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:3px}
 
-/* Scott Yih-style top navigation */
+/* top navigation */
 .site-header{border-top:2px solid #f4dfe3;border-bottom:1px solid var(--line);background:#fff}
 .nav-inner{
   width:auto;
@@ -55,9 +55,8 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
   letter-spacing:-.015em;
   white-space:nowrap;
 }
-.nav-links{display:flex;gap:44px;align-items:center}
-.nav-links a{font-size:20px;color:#77818a;font-weight:430}
-
+.nav-links{display:flex;gap:38px;align-items:center}
+.nav-links a{font-size:19px;color:#77818a;font-weight:430}
 .page{width:auto;margin-left:var(--frame-gap);margin-right:var(--right-gap);padding:58px 0 88px}
 .layout{display:grid;grid-template-columns:224px minmax(0,1fr);gap:var(--frame-gap);align-items:start}
 
@@ -105,26 +104,35 @@ h1.section-title,h2.section-title{
 .content p{font-size:17px;line-height:1.65;margin:0 0 14px;color:#424951}
 .micro{display:inline;font-size:inherit;line-height:inherit;font-weight:inherit}
 .m-pink,.m-blue,.m-green,.m-yellow,.m-lav{background:transparent}
-
 .updates-scroll{
-  max-height:215px;
+  max-height:235px;
   overflow-y:auto;
   background:var(--update-bg);
   border:1px solid var(--update-border);
   border-radius:10px;
-  padding:13px 17px 13px 17px;
+  padding:13px 17px;
 }
 .updates-scroll::-webkit-scrollbar{width:8px}
 .updates-scroll::-webkit-scrollbar-track{background:transparent}
 .updates-scroll::-webkit-scrollbar-thumb{background:#b5c8da;border-radius:999px}
-.update-item{font-size:16px;line-height:1.62;margin:9px 0;color:#4d5761}
+ .update-item{font-size:16px;line-height:1.62;margin:9px 0;color:#4d5761}
+.openings-highlight{
+  margin:0 0 12px;
+  padding:15px 18px;
+  background:#fff8e8;
+  border:1px solid #f0dfb5;
+  border-radius:10px;
+  font-size:16.2px;
+  line-height:1.58;
+  color:#4d5761;
+}
+.openings-highlight .date{margin-right:4px}
 .date{color:var(--muted);font-variant-numeric:tabular-nums}
 .question{display:inline;font-weight:690}
 .research-list{list-style:none;padding:0;margin:16px 0 0}
 .research-list li{display:grid;grid-template-columns:128px 1fr;gap:15px;align-items:start;margin:14px 0}
 .rlabel{font-size:12.8px;font-weight:730;padding:0;width:max-content;max-width:128px;color:#4d5359}
 .rtext{font-size:15.7px;line-height:1.62}.rtext strong{font-weight:700}
-
 .pub-head{display:flex;justify-content:flex-start;gap:24px;align-items:flex-end}
 .all{font-size:13px;white-space:nowrap;color:var(--muted);padding-bottom:4px}
 .pubs{margin-top:6px}
@@ -134,8 +142,13 @@ h1.section-title,h2.section-title{
 .authors{font-size:14.1px;line-height:1.54;color:#626b73}.me{font-weight:700;color:#3f464d}
 .meta{font-size:13.3px;color:var(--muted);margin-top:4px}.venuechip{display:inline;margin-right:5px;color:#50565c;font-weight:650}.plinks a{margin-left:7px}
 
-.soft-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.softbox{padding:0;background:transparent;border:0}.softbox:nth-child(2){background:transparent}.softbox strong{font-weight:700}.softbox ul{padding-left:18px;margin:6px 0 0}.softbox li{margin:4px 0}
+.talk-list,.teaching-list,.service-list{list-style:none;padding:0;margin:4px 0 0}
+.talk-item,.teaching-item,.service-item{padding:12px 0;border-top:1px solid var(--line)}
+.talk-item:last-child,.teaching-item:last-child,.service-item:last-child{border-bottom:1px solid var(--line)}
+.item-title{font-size:16px;font-weight:700;color:#454c53;line-height:1.45}
+.item-meta{font-size:14.2px;color:#6f7880;line-height:1.55;margin-top:2px}
+.item-desc{font-size:14.7px;color:#59626a;line-height:1.58;margin-top:3px}
+
 .experience{border-left:3px solid #dce4eb;padding:1px 0 2px 15px;margin:0 0 16px 2px}.subtle{color:var(--muted)}
 .footer{margin-top:52px;padding-top:16px;border-top:1px solid var(--line);font-size:12.4px;color:#a0a7ae}
 
@@ -146,7 +159,7 @@ h1.section-title,h2.section-title{
 @media(max-width:640px){
   .nav-inner,.page{margin-left:14px;margin-right:14px}.nav-inner{display:block}.nav-links{justify-content:flex-start;margin-top:10px;gap:18px}.brand{font-size:19px}
   .sidebar{grid-template-columns:112px 1fr}.portrait-shell{width:108px;height:108px;padding:5px}.side-name{font-size:20px}.side-role,.side-affil{font-size:14.5px}.side-links{grid-column:1/-1;margin-top:15px;display:grid;grid-template-columns:repeat(2,max-content);column-gap:18px}
-  h1.section-title,h2.section-title{font-size:29px}.content p{font-size:16px}.research-list li{grid-template-columns:1fr;gap:6px}.soft-grid{grid-template-columns:1fr}
+  h1.section-title,h2.section-title{font-size:29px}.content p{font-size:16px}.research-list li{grid-template-columns:1fr;gap:6px}
 }
 </style>
 </head>
@@ -157,7 +170,10 @@ h1.section-title,h2.section-title{
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#teaching">Teaching</a>
       <a href="#service">Service</a>
+      <a href="#openings">Openings</a>
     </nav>
   </div>
 </header>
@@ -176,7 +192,7 @@ h1.section-title,h2.section-title{
       <div class="side-links">
         <div class="side-link">
           <svg class="icon-svg gray" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
-          <span class="label">Staten Island, NY</span>
+          <span class="label">New York, NY</span>
         </div>
         <div class="side-link">
           <svg class="icon-svg gray" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.01L12 12l8-4.99V7H4Zm16 10V9.23l-7.47 4.67a1 1 0 0 1-1.06 0L4 9.23V17h16Z"/></svg>
@@ -195,7 +211,6 @@ h1.section-title,h2.section-title{
           <a href="https://scholar.google.com/citations?hl=en&user=meTtEDcAAAAJ">Google Scholar</a>
         </div>
       </div>
-
     </aside>
 
     <main class="content">
@@ -208,18 +223,20 @@ h1.section-title,h2.section-title{
 
       <section id="updates">
         <h2 class="section-title">Recent Updates</h2>
+        <div class="openings-highlight" id="openings"><span class="date">[Aug 2026]</span> <strong>Openings</strong>: I am looking for motivated students interested in interpretable, reliable and trustworthy AI.</div>
         <div class="updates-scroll">
+          <div class="update-item"><span class="date">[Aug 2026]</span> Our recent papers <strong>Geometric-disentanglement Unlearning (GU)</strong> and <strong>MemGuard</strong> were accepted to <strong>EMNLP 2026 Main</strong>; <strong>Current Agents Fail to Leverage World Model as Tool for Foresight</strong> to <strong>ACL 2026 Main</strong>; <strong>EMCompress</strong> to <strong>Findings of ACL 2026</strong>; <strong>ShortageSim</strong> to <strong>AAAI 2026</strong> (Oral); and <strong>ModelingAgent</strong> and <strong>SafeSwitch</strong> to <strong>Findings of EMNLP 2025</strong>!</div>
           <div class="update-item"><span class="date">[Aug 2026]</span> I am joining the <strong>College of Staten Island, City University of New York</strong> as an Assistant Professor of Computer Science!</div>
           <div class="update-item"><span class="date">[Mar 2026]</span> Call for papers for our <strong>4th Towards Knowledgeable Foundation Models Workshop</strong> at ACL 2026.</div>
-          <div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the University of Edinburgh — <em>Knowledge is Power, But Power Casts Shadows?</em></div>
-          <div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the University of Massachusetts.</div>
-          <div class="update-item"><span class="date">[Nov 2025]</span> Invited talk at NICE Academic Platform.</div>
-          <div class="update-item"><span class="date">[Oct 2025]</span> Invited talk at Northeastern University.</div>
+          <div class="update-item"><span class="date">[Mar 2026]</span> Invited talk at the <strong>University of Arizona</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div>
+          <div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>University of Edinburgh</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div>
+          <div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>University of Massachusetts</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div>
+          <div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>UIUC Large NLP Group Seminar</strong> — <em>Knowledge Lifecycle of LLMs</em></div>
           <div class="update-item"><span class="date">[Aug 2025]</span> Organized the 3rd Towards Knowledgeable Foundation Models Workshop at ACL 2025.</div>
         </div>
       </section>
 
-            <section id="research">
+      <section id="research">
         <h2 class="section-title">Research Interest</h2>
         <p>My research spans NLP, LLM interpretation, and trustworthy AI, with a focus on how LLMs acquire, represent, and use knowledge to improve reliability and performance.</p>
         <p>More broadly, I am interested in questions at the intersection of knowledge and reasoning: <span class="question">Can failures in AI reasoning be traced to deficiencies in how knowledge is represented and constructed? Can highly reliable reasoning emerge from better underlying knowledge building, updating, and organization?</span></p>
@@ -245,12 +262,84 @@ h1.section-title,h2.section-title{
         </div>
       </section>
 
+      <section id="talks">
+        <h2 class="section-title">Invited Talks & Tutorials</h2>
+        <ul class="talk-list">
+          <li class="talk-item">
+            <div class="item-title">Knowledge is Power, But Power Casts Shadows?</div>
+            <div class="item-meta">University of Arizona · Mar 2026</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">Knowledge is Power, But Power Casts Shadows?</div>
+            <div class="item-meta">University of Edinburgh · Jan 2026</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">Knowledge is Power, But Power Casts Shadows?</div>
+            <div class="item-meta">University of Massachusetts · Jan 2026</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">The Lifecycle of Knowledge in Large Language Models: Memorization, Editing, and Beyond</div>
+            <div class="item-meta">UIUC Large NLP Group Seminar · Jan 2026</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">Knowledgeable Foundation Models</div>
+            <div class="item-meta">NICE Academic Platform · Nov 2025</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">Robust and Trustworthy Language Models</div>
+            <div class="item-meta">Northeastern University · Oct 2025</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div>
+            <div class="item-meta">Ploutos Academic Platform · May 2025</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div>
+            <div class="item-meta">University of Illinois Urbana-Champaign · May 2025</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div>
+            <div class="item-meta">The University of Texas at Austin · Mar 2025 · academic visit</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">The Lifecycle of Knowledge in Large Language Models: Memorization, Editing, and Beyond</div>
+            <div class="item-meta">AAAI 2025 Tutorial · Organizer and Speaker · Mar 2025</div>
+          </li>
+          <li class="talk-item">
+            <div class="item-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div>
+            <div class="item-meta">Beijing Academy of Artificial Intelligence (BAAI) Academic Platform · Aug 2024 · 400+ attendees</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="teaching">
+        <h2 class="section-title">Teaching</h2>
+        <ul class="teaching-list">          
+          <li class="teaching-item"><div class="item-title">Instructor · CSC 733: Natural Language Processing</div><div class="item-meta">College of Staten Island, City University of New York · Fall 2026 · Mondays, 6:30 p.m.–9:10 p.m.</div></li>
+          <li class="teaching-item"><div class="item-title">Guest Lecturer · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Fall 2026</div></li>
+          <li class="teaching-item"><div class="item-title">Guest Lecturer · CS 496: Agent AI</div><div class="item-meta">Northwestern University · Spring 2026</div></li>
+          <li class="teaching-item"><div class="item-title">Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Spring 2026</div></li>
+          <li class="teaching-item"><div class="item-title">Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Fall 2025</div></li>
+          <li class="teaching-item"><div class="item-title">Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Spring 2025</div></li>
+          <li class="teaching-item"><div class="item-title">Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Fall 2024</div></li>
+          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 3134: Business Intelligence and CRM</div><div class="item-meta">The Hong Kong Polytechnic University · Fall 2023</div></li>
+          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 5511: Artificial Intelligence Concepts</div><div class="item-meta">The Hong Kong Polytechnic University · Spring 2023</div></li>
+          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 5511: Artificial Intelligence Concepts</div><div class="item-meta">The Hong Kong Polytechnic University · Fall 2022</div></li>
+          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 4141: Crowdfunding and e-Finance</div><div class="item-meta">The Hong Kong Polytechnic University · Spring 2022</div></li>
+          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 1433: Introduction to Data Analytics</div><div class="item-meta">The Hong Kong Polytechnic University · Fall 2021</div></li>
+          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 1433: Introduction to Data Analytics</div><div class="item-meta">The Hong Kong Polytechnic University · Spring 2021</div></li>
+        </ul>
+      </section>
+
       <section id="service">
-        <h2 class="section-title">Teaching & Service</h2>
-        <div class="soft-grid">
-          <div class="softbox"><strong>Teaching</strong><ul><li>CUNY CSI Programming Language Lab, Fall 2026</li><li>UIUC CS 591, 2025–2026</li></ul></div>
-          <div class="softbox"><strong>Professional Service</strong><ul><li>Area Chair: ACL 2026, EMNLP 2026</li><li>Workshop organizer: Knowledgeable Foundation Models</li><li>Reviewer: NeurIPS, ICLR, ACL, EMNLP, NAACL, KDD</li></ul></div>
-        </div>
+        <h2 class="section-title">Professional Service</h2>
+        <ul class="service-list">
+          <li class="service-item"><div class="item-title">Organizer · Workshop on Towards Knowledgeable Foundation Models</div><div class="item-meta">ACL 2025; continuing workshop organization for ACL 2026</div></li>
+          <li class="service-item"><div class="item-title">Session Chair · Language Models and Interpretability</div><div class="item-meta">ACL 2025</div></li>
+          <li class="service-item"><div class="item-title">Session Chair · Language Modeling</div><div class="item-meta">ACL 2025</div></li>
+          <li class="service-item"><div class="item-title">Area Chair</div><div class="item-meta">ACL 2026 · LREC 2026</div></li>
+          <li class="service-item"><div class="item-title">Conference Reviewer</div><div class="item-meta">NeurIPS · ICLR · ACL · EMNLP · NAACL · KDD</div></li>
+        </ul>
       </section>
 
       <section id="experience">
