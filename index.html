@@ -1,710 +1,97 @@
-<!doctype html>
-
-<html lang="en">
-
-<head>
-
-<meta charset="utf-8" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<title>Yuji Zhang</title>
-
-<style>
-
-:root{
-
-  --ink:#424951;
-
-  --heading:#3f464d;
-
-  --muted:#7a838c;
-
-  --paper:#ffffff;
-
-  --line:#edf0f3;
-
-  --link:#5c98b5;
-
-  --blue:#eaf2fb;
-
-  --yellow:#fff3c9;
-
-  --pink:#f7e9ec;
-
-  --green:#eaf3e7;
-
-  --lav:#eeeaf7;
-
-  --update-bg:#eef4fb;
-
-  --update-border:#d7e3ef;
-
-  --frame-gap:clamp(66px,7.2vw,96px);
-
-  --right-gap:var(--frame-gap);
-
-}
-
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
-
-  margin:0;
-
-  background:var(--paper);
-
-  color:var(--ink);
-
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji",sans-serif;
-
-  font-size:16px;
-
-  line-height:1.68;
-
-  -webkit-font-smoothing:antialiased;
-
-}
-
-a{color:var(--link);text-decoration:none}
-
-a:hover{text-decoration:underline;text-underline-offset:3px}
-
-
-
-/* top navigation */
-
-.site-header{border-top:2px solid #f4dfe3;border-bottom:1px solid var(--line);background:#fff}
-
-.nav-inner{
-
-  width:auto;
-
-  height:104px;
-
-  margin-left:var(--frame-gap);
-
-  margin-right:var(--right-gap);
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:36px;
-
-}
-
-.brand{
-
-  font-size:21px;
-
-  font-weight:720;
-
-  color:#69727a;
-
-  letter-spacing:-.015em;
-
-  white-space:nowrap;
-
-}
-
-.nav-links{display:flex;gap:38px;align-items:center}
-
-.nav-links a{font-size:19px;color:#77818a;font-weight:430}
-
-.page{width:auto;margin-left:var(--frame-gap);margin-right:var(--right-gap);padding:58px 0 88px}
-
-.layout{display:grid;grid-template-columns:224px minmax(0,1fr);gap:var(--frame-gap);align-items:start}
-
-
-
-/* left identity column */
-
-.sidebar{padding-top:4px}
-
-.portrait-shell{
-
-  width:224px;
-
-  height:224px;
-
-  border-radius:50%;
-
-  border:1px solid #e8edf1;
-
-  padding:8px;
-
-  background:#fff;
-
-  margin-bottom:20px;
-
-}
-
-.portrait,.portrait-fallback{
-
-  width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;background:#eef2f5;
-
-}
-
-.portrait-fallback{display:flex;align-items:center;justify-content:center;font-size:42px;color:#9aa4ad;font-weight:700}
-
-.side-name{font-size:22px;line-height:1.25;font-weight:720;color:#626b73;margin:0 0 9px}
-
-.side-role{font-size:16px;color:#747d85;margin:1px 0}
-
-.side-affil{font-size:16px;line-height:1.42;margin:2px 0 0;max-width:250px}
-
-.side-links{margin-top:22px;display:flex;flex-direction:column;gap:10px;font-size:15px}
-
-.side-link{display:flex;align-items:center;gap:10px;width:max-content;max-width:100%;color:#6e7780}
-
-.side-link a,.side-link span.label{color:#6e7780}
-
-.icon-svg{width:22px;height:22px;display:block;flex:0 0 22px}
-
-.icon-svg.gray{color:#51565b}
-
-.icon-svg.sky{color:#73b9e8}
-
-.icon-svg.fb{color:#7b90c8}
-
-.icon-svg.in{color:#69a9d9}
-
-.icon-svg.gh{color:#51565b}
-
-.icon-svg.gs{color:#8a8d90}
-
-
-
-/* main content */
-
-.content{min-width:0}
-
-section{margin-top:42px;scroll-margin-top:30px}
-
-section:first-child{margin-top:0}
-
-h1.section-title,h2.section-title{
-
-  color:var(--heading);
-
-  font-size:34px;
-
-  line-height:1.15;
-
-  letter-spacing:-.028em;
-
-  margin:0 0 20px;
-
-  font-weight:760;
-
-}
-
-.content p{font-size:17px;line-height:1.65;margin:0 0 14px;color:#424951}
-
-.micro{display:inline;font-size:inherit;line-height:inherit;font-weight:inherit}
-
-.m-pink,.m-blue,.m-green,.m-yellow,.m-lav{background:transparent}
-
-.updates-scroll{
-
-  max-height:235px;
-
-  overflow-y:auto;
-
-  background:var(--update-bg);
-
-  border:1px solid var(--update-border);
-
-  border-radius:10px;
-
-  padding:13px 17px;
-
-}
-
-.updates-scroll::-webkit-scrollbar{width:8px}
-
-.updates-scroll::-webkit-scrollbar-track{background:transparent}
-
-.updates-scroll::-webkit-scrollbar-thumb{background:#b5c8da;border-radius:999px}
-
- .update-item{font-size:16px;line-height:1.62;margin:9px 0;color:#4d5761}
-
-.openings-highlight{
-
-  margin:0 0 12px;
-
-  padding:15px 18px;
-
-  background:#fff8e8;
-
-  border:1px solid #f0dfb5;
-
-  border-radius:10px;
-
-  font-size:16.2px;
-
-  line-height:1.58;
-
-  color:#4d5761;
-
-}
-
-.openings-highlight .date{margin-right:4px}
-
-.date{color:var(--muted);font-variant-numeric:tabular-nums}
-
-.question{display:inline;font-weight:690}
-
-.research-list{list-style:none;padding:0;margin:16px 0 0}
-
-.research-list li{display:grid;grid-template-columns:128px 1fr;gap:15px;align-items:start;margin:14px 0}
-
-.rlabel{font-size:12.8px;font-weight:730;padding:0;width:max-content;max-width:128px;color:#4d5359}
-
-.rtext{font-size:15.7px;line-height:1.62}.rtext strong{font-weight:700}
-
-.pub-head{display:flex;justify-content:flex-start;gap:24px;align-items:flex-end}
-
-.all{font-size:13px;white-space:nowrap;color:var(--muted);padding-bottom:4px}
-
-.pubs{margin-top:6px}
-
-.pub{padding:15px 0 16px;border-top:1px solid var(--line)}
-
-.pub:last-child{border-bottom:1px solid var(--line)}
-
-.pub-title{font-weight:700;font-size:16.1px;line-height:1.5;margin-bottom:3px;color:#3f464d}
-
-.authors{font-size:14.1px;line-height:1.54;color:#626b73}.me{font-weight:700;color:#3f464d}
-
-.meta{font-size:13.3px;color:var(--muted);margin-top:4px}.venuechip{display:inline;margin-right:5px;color:#50565c;font-weight:650}.plinks a{margin-left:7px}
-
-
-
-.talk-list,.teaching-list,.service-list{list-style:none;padding:0;margin:4px 0 0}
-
-.talk-item,.teaching-item,.service-item{padding:12px 0;border-top:1px solid var(--line)}
-
-.talk-item:last-child,.teaching-item:last-child,.service-item:last-child{border-bottom:1px solid var(--line)}
-
-.item-title{font-size:16px;font-weight:700;color:#454c53;line-height:1.45}
-
-.item-meta{font-size:14.2px;color:#6f7880;line-height:1.55;margin-top:2px}
-
-.item-desc{font-size:14.7px;color:#59626a;line-height:1.58;margin-top:3px}
-
-
-
-.experience{border-left:3px solid #dce4eb;padding:1px 0 2px 15px;margin:0 0 16px 2px}.subtle{color:var(--muted)}
-
-.footer{margin-top:52px;padding-top:16px;border-top:1px solid var(--line);font-size:12.4px;color:#a0a7ae}
-
-
-
-@media(max-width:900px){
-
-  .nav-inner{height:auto;padding:22px 0;align-items:flex-start}.nav-links{gap:22px;flex-wrap:wrap;justify-content:flex-end}.nav-links a{font-size:16px}
-
-  .page{padding-top:36px}.layout{grid-template-columns:1fr;gap:34px}.sidebar{display:grid;grid-template-columns:150px 1fr;column-gap:22px;align-items:start}.portrait-shell{width:145px;height:145px;grid-row:1/6;margin:0}.side-links{margin-top:12px}
-
-}
-
-@media(max-width:640px){
-
-  .nav-inner,.page{margin-left:14px;margin-right:14px}.nav-inner{display:block}.nav-links{justify-content:flex-start;margin-top:10px;gap:18px}.brand{font-size:19px}
-
-  .sidebar{grid-template-columns:112px 1fr}.portrait-shell{width:108px;height:108px;padding:5px}.side-name{font-size:20px}.side-role,.side-affil{font-size:14.5px}.side-links{grid-column:1/-1;margin-top:15px;display:grid;grid-template-columns:repeat(2,max-content);column-gap:18px}
-
-  h1.section-title,h2.section-title{font-size:29px}.content p{font-size:16px}.research-list li{grid-template-columns:1fr;gap:6px}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header class="site-header">
-
-  <div class="nav-inner">
-
-    <div class="brand">Yuji Zhang</div>
-
-    <nav class="nav-links" aria-label="Primary navigation">
-
-      <a href="#research">Research</a>
-
-      <a href="#publications">Publications</a>
-
-      <a href="#talks">Talks</a>
-
-      <a href="#teaching">Teaching</a>
-
-      <a href="#service">Service</a>
-
-      <a href="#openings">Openings</a>
-
-    </nav>
-
-  </div>
-
-</header>
-
-
-
-<div class="page">
-
-  <div class="layout">
-
-    <aside class="sidebar">
-
-      <div class="portrait-shell">
-
-        <div class="portrait-fallback">YZ</div>
-
-        <img class="portrait" src="pic/yjzhang.jpg" alt="Yuji Zhang" onerror="this.style.display='none'" style="margin-top:-100%;position:relative" />
-
-      </div>
-
-      <div class="side-name">Yuji Zhang (张雨季)</div>
-
-      <div class="side-role">Assistant Professor</div>
-
-      <div class="side-role">Computer Science</div>
-
-      <div class="side-affil"><a href="https://www.cuny.edu/">City University of New York</a></div>
-
-      <div class="side-links">
-
-        <div class="side-link">
-
-          <svg class="icon-svg gray" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
-
-          <span class="label">New York, NY</span>
-
-        </div>
-
-        <div class="side-link">
-
-          <svg class="icon-svg gray" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.01L12 12l8-4.99V7H4Zm16 10V9.23l-7.47 4.67a1 1 0 0 1-1.06 0L4 9.23V17h16Z"/></svg>
-
-          <a href="mailto:yuji.zhang[AT]csi.cuny.edu">Email</a>
-
-        </div>
-
-        <div class="side-link">
-
-          <svg class="icon-svg sky" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.9 2H22l-6.77 7.74L23.2 22h-6.25l-4.9-7.43L5.56 22H2.45l7.24-8.28L1.9 2h6.41l4.43 6.74L18.9 2Zm-1.1 18h1.73L7.37 3.9H5.5L17.8 20Z"/></svg>
-
-          <a href="https://twitter.com/Yuji_Zhang_NLP">X (Twitter)</a>
-
-        </div>
-
-        <div class="side-link">
-
-          <svg class="icon-svg in" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.6 9.73h2.68V18H5.6V9.73Zm4.36 0h2.57v1.13h.04c.36-.68 1.23-1.39 2.53-1.39 2.71 0 3.21 1.78 3.21 4.09V18h-2.68v-3.94c0-.94-.02-2.15-1.31-2.15-1.31 0-1.51 1.02-1.51 2.08V18H9.96V9.73Z"/></svg>
-
-          <a href="https://www.linkedin.com/in/yuji-zhang-29870b2b0">LinkedIn</a>
-
-        </div>
-
-        <div class="side-link">
-
-          <svg class="icon-svg gs" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3c-2.2 0-4 1.8-4 4v10c0 2.2 1.8 4 4 4h6a1 1 0 0 0 1-1v-9.59a1 1 0 0 0-.29-.7l-4.42-4.42A1 1 0 0 0 13.59 5H12Zm2 2.41L16.59 8H14V5.41ZM6 7a6 6 0 0 1 6-6h1.59c.8 0 1.56.32 2.12.88l4.41 4.41c.56.56.88 1.32.88 2.12V20a3 3 0 0 1-3 3h-6a6 6 0 0 1-6-6V7Zm6.1 3.25c-1.83 0-3.12 1.38-3.12 3.25 0 1.88 1.36 3.25 3.18 3.25 1.55 0 2.8-.83 2.99-2.39h-2.96V13h4.68c.05.24.08.5.08.84 0 2.68-1.8 4.91-4.78 4.91-2.74 0-5.03-2.17-5.03-5.25s2.28-5.25 5-5.25c1.49 0 2.45.58 3.21 1.28l-1.22 1.18c-.37-.35-.98-.76-2.03-.76Z"/></svg>
-
-          <a href="https://scholar.google.com/citations?hl=en&user=meTtEDcAAAAJ">Google Scholar</a>
-
-        </div>
-
-      </div>
-
-    </aside>
-
-
-
-    <main class="content">
-
-      <section id="about">
-
-        <h1 class="section-title">About</h1>
-
-        <p>I am an Assistant Professor in the Computer Science Department at the College of Staten Island, City University of New York.</p>
-
-        <p>Before joining the City University of New York, I was a postdoctoral researcher at the University of Illinois Urbana-Champaign, where I was advised by Prof. <a href="https://blender.cs.illinois.edu/hengji.html">Heng Ji</a> and Prof. <a href="https://czhai.cs.illinois.edu/">Chengxiang Zhai</a>. I also worked with Prof. <a href="https://hchadlane.net/">H. Chad Lane</a>.</p>
-        
-        <p>My research focuses on the knowledge lifecycle of large language models, with the goal of building more reliable and intelligent AI systems.</p>
-
-      </section>
-
-
-
-      <section id="updates">
-
-        <h2 class="section-title">Recent Updates</h2>
-
-        <div class="openings-highlight" id="openings"><span class="date">[Aug 2026]</span> <strong>Openings</strong>: I am looking for motivated students interested in interpretable, reliable, and trustworthy AI.</div>
-
-        <div class="updates-scroll">
-
-          <div class="update-item"><span class="date">[Aug 2026]</span> Our recent papers <strong>Geometric-disentanglement Unlearning (GU)</strong> and <strong>MemGuard</strong> were accepted to <strong>EMNLP 2026 Main</strong>; <strong>Current Agents Fail to Leverage World Model as Tool for Foresight</strong> to <strong>ACL 2026 Main</strong>; <strong>EMCompress</strong> to <strong>Findings of ACL 2026</strong>; <strong>ShortageSim</strong> to <strong>AAAI 2026</strong> (Oral); <strong>ModelingAgent</strong> and <strong>SafeSwitch</strong> to <strong>Findings of EMNLP 2025</strong>; and <strong>How Do Analytic Design Choices Shape MLLM-Based Detection of Non-Verbal Behaviors in 360° Classroom Video</strong> to the <strong>EDM 2026 Proceedings</strong>!</div>
-
-          <div class="update-item"><span class="date">[Aug 2026]</span> I am joining the <strong>College of Staten Island, City University of New York</strong> as an Assistant Professor of Computer Science!</div>
-
-          <div class="update-item"><span class="date">[Mar 2026]</span> Call for papers for our <strong>4th Towards Knowledgeable Foundation Models Workshop</strong> at ACL 2026.</div>
-
-          <div class="update-item"><span class="date">[Mar 2026]</span> Invited talk at the <strong>University of Arizona</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div>
-
-          <div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>University of Edinburgh</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div>
-
-          <div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>University of Massachusetts</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div>
-
-          <div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>UIUC Large NLP Group Seminar</strong> — <em>Knowledge Lifecycle of LLMs</em></div>
-
-          <div class="update-item"><span class="date">[Aug 2025]</span> Organized the 3rd Towards Knowledgeable Foundation Models Workshop at ACL 2025.</div>
-
-        </div>
-
-      </section>
-
-
-
-      <section id="research">
-
-        <h2 class="section-title">Research Interest</h2>
-
-        <p>My research spans NLP, LLM interpretation, and trustworthy AI, with a focus on how LLMs acquire, represent, and use knowledge to improve reliability and performance.</p>
-
-        <p>More broadly, I am interested in questions at the intersection of knowledge and reasoning: <span class="question">Can failures in AI reasoning be traced to deficiencies in how knowledge is represented and constructed? Can highly reliable reasoning emerge from better underlying knowledge building, updating, and organization?</span></p>
-
-        <p>My current research directions include:</p>
-
-        <ul class="research-list">
-
-          <li><span class="rlabel">Hallucination</span><div class="rtext">Understanding hallucination through the lens of knowledge representation and interaction, with the goal of interpreting, predicting, and preventing failures such as knowledge overshadowing.</div></li>
-
-          <li><span class="rlabel">Updating</span><div class="rtext">Developing reliable knowledge updating methods that incorporate new knowledge while preserving existing knowledge and model robustness.</div></li>
-
-          <li><span class="rlabel">Acquisition</span><div class="rtext">Improving knowledge acquisition and organization to enhance model intelligence and support stronger reasoning.</div></li>
-
-        </ul>
-
-      </section>
-
-
-
-      <section id="publications">
-
-        <div class="pub-head"><h2 class="section-title">Selected Publications</h2><div class="all">see <a href="https://scholar.google.com/citations?hl=en&user=meTtEDcAAAAJ">Google Scholar</a> for all</div></div>
-
-        <div class="pubs">
-
-          <article class="pub"><div class="pub-title">Benchmarking Multi-turn Medical Diagnosis: Hold, Lure, and Self-correction</div><div class="authors">Jinrui Fang, Runhan Chen, Xu Yang, Jian Yu, Jiawei Xu, Ashwin Vinod, Wenqi Shi, Tianlong Chen, Heng Ji, Chengxiang Zhai, Ying Ding†, <span class="me">Yuji Zhang†</span></div><div class="meta"><span class="venuechip m-yellow">Preprint</span><span class="plinks"><a href="https://arxiv.org/abs/2604.04325">paper</a></span></div></article>
-
-          <article class="pub"><div class="pub-title">Atomic Reasoning for Scientific Table Claim Verification</div><div class="authors"><span class="me">Yuji Zhang</span>, Qingyun Wang, Cheng Qian, Jiateng Liu, Chenkai Sun, Denghui Zhang, Tarek Abdelzaher, Chengxiang Zhai, Preslav Nakov, Heng Ji</div><div class="meta"><span class="venuechip m-blue">Preprint</span><span class="plinks"><a href="https://arxiv.org/abs/2506.06972">paper</a></span></div></article>
-
-          <article class="pub"><div class="pub-title">The Law of Knowledge Overshadowing: Towards Understanding, Predicting, and Preventing LLM Hallucination</div><div class="authors"><span class="me">Yuji Zhang</span>, Sha Li, Cheng Qian, Jiateng Liu, Pengfei Yu, Yi R. Fung, Chi Han, Kathleen McKeown, Chengxiang Zhai, Manling Li, Heng Ji</div><div class="meta"><span class="venuechip m-pink">ACL 2025</span><span class="plinks"><a href="https://arxiv.org/abs/2502.16143">paper</a></span></div></article>
-
-          <article class="pub"><div class="pub-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div><div class="authors"><span class="me">Yuji Zhang</span>, Sha Li, Jiateng Liu, Pengfei Yu, Yi R. Fung, Jing Li, Manling Li, Heng Ji</div><div class="meta"><span class="venuechip m-green">Preprint</span><span class="plinks"><a href="https://arxiv.org/abs/2407.08039">paper</a></span></div></article>
-
-          <article class="pub"><div class="pub-title">Geometric-disentanglement Unlearning</div><div class="authors">Duo Zhou*, <span class="me">Yuji Zhang*</span>, Tianxin Wei, Ruizhong Qiu, Ke Yang, Xiao Lin, Cheng Qian, Jingrui He, Hanghang Tong, Heng Ji, Huan Zhang</div><div class="meta"><span class="venuechip m-blue">EMNLP 2026</span><span class="plinks"><a href="https://arxiv.org/abs/2511.17100">paper</a></span></div></article>
-
-          <article class="pub"><div class="pub-title">MemGuard: Preventing Memory Contamination in Long-Term Memory-Augmented Large Language Models</div><div class="authors">Hyeonjeong Ha, Jeonghwan Kim, Cheng Qian, Jiayu Liu, William M. Campbell, Yue Wu, <span class="me">Yuji Zhang</span>, Kathleen McKeown, Dilek Hakkani-Tur, Heng Ji</div><div class="meta"><span class="venuechip">EMNLP 2026</span><span class="plinks"><a href="https://arxiv.org/abs/2605.28009">paper</a></span></div></article>
-
-          <article class="pub"><div class="pub-title">ModelingAgent: Bridging LLMs and Mathematical Modeling for Real-World Challenges</div><div class="authors">Cheng Qian, Hongyi Du, Hongru Wang, Xiusi Chen, <span class="me">Yuji Zhang</span>, Avirup Sil, Chengxiang Zhai, Kathleen McKeown, Heng Ji</div><div class="meta"><span class="venuechip">EMNLP 2025</span><span class="plinks"><a href="https://aclanthology.org/anthology-files/pdf/findings/2025.findings-emnlp.85.pdf">paper</a></span></div></article>
-
-          <article class="pub"><div class="pub-title">📢 ShortageSim: Simulating Drug Shortages under Information Asymmetry</div><div class="authors">Mingxuan Cui*, Yilan Jiang*, Duo Zhou*, Cheng Qian, <span class="me">Yuji Zhang†</span>, Qiong Wang†</div><div class="meta"><span class="venuechip m-lav">AAAI 2026 · Oral</span><span class="plinks"><a href="https://arxiv.org/abs/2509.01813">paper</a></span></div></article>
-
-        </div>
-
-      </section>
-
-
-
-      <section id="talks">
-
-        <h2 class="section-title">Invited Talks & Tutorials</h2>
-
-        <ul class="talk-list">
-
-          <li class="talk-item">
-
-            <div class="item-title">Knowledge is Power, But Power Casts Shadows?</div>
-
-            <div class="item-meta">City University of New York · May 2026</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">Knowledge is Power, But Power Casts Shadows?</div>
-
-            <div class="item-meta">University of Arizona · Mar 2026</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">The Knowledge Lifecycle of LLMs: Memorization, Editing, and Beyond</div>
-
-            <div class="item-meta">UIUC Large NLP Group Seminar · Jan 2026</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">Knowledge is Power, But Power Casts Shadows?</div>
-
-            <div class="item-meta">University of Edinburgh · Jan 2026</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">Knowledge is Power, But Power Casts Shadows?</div>
-
-            <div class="item-meta">University of Massachusetts · Jan 2026</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">Towards Knowledgeable Foundation Models</div>
-
-            <div class="item-meta">NICE Academic Platform · Nov 2025</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">Robust and Trustworthy Language Models</div>
-
-            <div class="item-meta">Northeastern University · Oct 2025</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div>
-
-            <div class="item-meta">Ploutos Academic Platform · May 2025</div>
-
-          </li>
-
-
-          <li class="talk-item">
-
-            <div class="item-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div>
-
-            <div class="item-meta">The University of Texas at Austin · Mar 2025 · invited three-day academic visit</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">The Lifecycle of Knowledge in Large Language Models: Memorization, Editing, and Beyond</div>
-
-            <div class="item-meta">AAAI 2025 Tutorial · Organizer and Speaker · Mar 2025</div>
-
-          </li>
-
-          <li class="talk-item">
-
-            <div class="item-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div>
-
-            <div class="item-meta">Beijing Academy of Artificial Intelligence (BAAI) Academic Platform · Aug 2024</div>
-
-          </li>
-
-        </ul>
-
-      </section>
-
-
-
-      <section id="teaching">
-
-        <h2 class="section-title">Teaching</h2>
-
-        <ul class="teaching-list">
-
-          <li class="teaching-item"><div class="item-title">Instructor · CSC 733: Natural Language Processing</div><div class="item-meta">College of Staten Island, City University of New York · Fall 2026 · Mondays, 6:30 p.m.–9:10 p.m.</div></li>
-
-          <li class="teaching-item"><div class="item-title">Guest Lecturer · CS 496: Agent AI</div><div class="item-meta">Northwestern University · Spring 2026</div></li>
-
-          <li class="teaching-item"><div class="item-title">Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Spring 2026</div></li>
-
-          <li class="teaching-item"><div class="item-title">Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Fall 2025</div></li>
-
-          <li class="teaching-item"><div class="item-title">Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Spring 2025</div></li>
-
-          <li class="teaching-item"><div class="item-title">Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</div><div class="item-meta">University of Illinois Urbana-Champaign · Fall 2024</div></li>
-
-          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 3134: Business Intelligence and CRM</div><div class="item-meta">The Hong Kong Polytechnic University · Fall 2023</div></li>
-
-          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 5511: Artificial Intelligence Concepts</div><div class="item-meta">The Hong Kong Polytechnic University · Spring 2023</div></li>
-
-          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 5511: Artificial Intelligence Concepts</div><div class="item-meta">The Hong Kong Polytechnic University · Fall 2022</div></li>
-
-          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 4141: Crowdfunding and e-Finance</div><div class="item-meta">The Hong Kong Polytechnic University · Spring 2022</div></li>
-
-          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 1433: Introduction to Data Analytics</div><div class="item-meta">The Hong Kong Polytechnic University · Fall 2021</div></li>
-
-          <li class="teaching-item"><div class="item-title">Teaching Assistant · COMP 1433: Introduction to Data Analytics</div><div class="item-meta">The Hong Kong Polytechnic University · Spring 2021</div></li>
-
-        </ul>
-
-      </section>
-
-
-
-      <section id="service">
-
-        <h2 class="section-title">Professional Service</h2>
-
-        <ul class="service-list">
-
-          <li class="service-item"><div class="item-title">Organizer · Workshop on Towards Knowledgeable Foundation Models</div><div class="item-meta">ACL 2025; continuing workshop organization for ACL 2026</div></li>
-
-          <li class="service-item"><div class="item-title">Session Chair · Language Models and Interpretability</div><div class="item-meta">ACL 2025</div></li>
-
-          <li class="service-item"><div class="item-title">Session Chair · Language Modeling</div><div class="item-meta">ACL 2025</div></li>
-
-          <li class="service-item"><div class="item-title">Area Chair</div><div class="item-meta">ACL 2026 · LREC 2026</div></li>
-
-          <li class="service-item"><div class="item-title">Conference Reviewer</div><div class="item-meta">NeurIPS · ICLR · ACL · EMNLP · NAACL · KDD</div></li>
-
-        </ul>
-
-      </section>
-
-
-
-      <section id="experience">
-
-        <h2 class="section-title">Research Experience</h2>
-
-        <div class="experience"><strong>University of Illinois Urbana-Champaign</strong><br><span class="subtle">Postdoctoral Researcher · 2024–2026</span></div>
-
-        <div class="experience"><strong>University of Illinois Urbana-Champaign</strong><br><span class="subtle">Visiting Ph.D. Student · 2023–2024</span></div>
-
-        <div class="experience"><strong>The Hong Kong Polytechnic University</strong><br><span class="subtle">Ph.D. in Computing · 2020–2024</span></div>
-
-        <div class="experience"><strong>Dartmouth College</strong><br><span class="subtle">Research Intern · 2019–2020</span></div>
-
-      </section>
-
-    </main>
-
-  </div>
-
-</div>
-
-</body>
-
-</html>
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Yuji Zhang</title><meta content="Yuji Zhang is an Assistant Professor of Computer Science at CUNY. Research in trustworthy and interpretable AI, knowledge dynamics, reliable reasoning, and AI agents." name="description"/><style>
+:root { --ink:#424951; --heading:#3f464d; --muted:#7a838c; --paper:#fff; --line:#edf0f3; --link:#5c98b5; --frame-gap:clamp(38px,6.7vw,90px); }
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.64;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline;text-underline-offset:3px}
+.site-header{border-top:2px solid #f4dfe3;border-bottom:1px solid var(--line)}
+.nav-inner{margin:0 var(--frame-gap);min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{font-size:21px;font-weight:720;color:#69727a;white-space:nowrap}.nav-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}.nav-links a{font-size:16px;color:#77818a}
+.page{margin:0 var(--frame-gap);padding:50px 0 85px;max-width:1500px}.layout{display:grid;grid-template-columns:218px minmax(0,1fr);gap:var(--frame-gap);align-items:start}
+.sidebar{padding-top:4px}.portrait-shell{width:214px;height:214px;border-radius:50%;border:1px solid #e8edf1;padding:8px;margin-bottom:22px;background:#fff}.portrait{width:100%;height:100%;border-radius:50%;object-fit:cover}.side-name{font-size:22px;font-weight:720;color:#626b73;line-height:1.3;margin-bottom:8px}.side-role{font-size:16px;color:#747d85}.side-affil{font-size:15px;line-height:1.5;margin-top:6px}.side-links{display:flex;flex-direction:column;gap:9px;margin-top:20px;font-size:15px}
+section{margin-top:43px;scroll-margin-top:28px}section:first-child{margin-top:0}.section-title{color:var(--heading);font-size:32px;line-height:1.2;letter-spacing:-.02em;margin:0 0 18px;font-weight:755}
+p{margin:0 0 14px}.content p{font-size:16.6px;line-height:1.68}.updates-scroll{max-height:208px;overflow-y:auto;background:#eef4fb;border:1px solid #d7e3ef;border-radius:10px;padding:8px 18px}.update-item{margin:10px 0;font-size:15px;line-height:1.65}.date{color:var(--muted)}
+.vision{border-left:3px solid #c8dbe8;padding-left:16px;margin:15px 0 19px;font-size:16.2px;color:#515b64}.research-list{list-style:none;margin:18px 0 0;padding:0}.research-list li{display:grid;grid-template-columns:minmax(190px,230px) 1fr;gap:17px;align-items:start;padding:13px 0;border-top:1px solid var(--line)}.rlabel{font-weight:720;color:#505a62;font-size:14px;line-height:1.5}.rtext{font-size:15.7px}.rtext .examples{font-size:13.5px;color:var(--muted);margin-top:5px}
+.group-intro{font-size:14px;color:var(--muted);margin:4px 0 12px}.pubgroup{margin-top:25px}.pubgroup h3{font-size:20px;color:var(--heading);margin:0 0 8px;font-weight:700}.pub{padding:14px 0;border-top:1px solid var(--line)}.pub-title{font-weight:700;font-size:16px;line-height:1.44;color:var(--heading)}.authors{font-size:14px;color:#626b73;line-height:1.55;margin-top:3px}.me{font-weight:760;color:#333c44}.meta{font-size:13px;color:#7a838c;margin-top:4px}.venuechip{font-weight:650;color:#4f5c65}.role{display:inline-block;margin-right:8px;color:#446d84;font-weight:650}.plinks{margin-left:6px}
+.soft-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.softbox{font-size:15px}.softbox p{font-size:15px}.talk{margin-bottom:11px;font-size:14.8px}.talk strong{color:#4b555e}.experience{border-left:3px solid #dce4eb;padding-left:13px;margin:0 0 14px}.subtle{color:var(--muted)}.footer{margin-top:42px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:#9fa7af}
+@media(max-width:940px){.nav-inner{padding:20px 0;align-items:flex-start}.layout{grid-template-columns:1fr;gap:28px}.sidebar{display:grid;grid-template-columns:142px 1fr;column-gap:20px}.portrait-shell{grid-row:1/6;width:135px;height:135px}.side-links{margin-top:12px}.page{padding-top:35px}}
+@media(max-width:620px){:root{--frame-gap:18px}.nav-inner{display:block}.nav-links{margin-top:12px;gap:15px}.nav-links a{font-size:14px}.sidebar{grid-template-columns:107px 1fr}.portrait-shell{width:100px;height:100px;padding:4px}.side-name{font-size:20px}.side-role,.side-affil{font-size:14px}.side-links{grid-column:1/-1;display:flex;flex-direction:row;flex-wrap:wrap;gap:10px 15px}.section-title{font-size:29px}.research-list li{display:block}.rlabel{margin-bottom:5px}.soft-grid{grid-template-columns:1fr}}
+
+:root{--frame-gap:clamp(66px,7.2vw,96px)}
+.nav-inner{min-height:104px}.nav-links{gap:38px}.nav-links a{font-size:19px}
+.page{padding:58px 0 88px}.layout{grid-template-columns:224px minmax(0,1fr)}
+.portrait-shell{width:224px;height:224px;margin-bottom:20px}
+.section-title{font-size:34px}.content p{font-size:17px;line-height:1.65}
+.openings-highlight{margin-bottom:12px;padding:15px 18px;background:#fff8e8;border:1px solid #f0dfb5;border-radius:10px;font-size:16px;line-height:1.58}
+.updates-scroll{max-height:235px;padding:13px 17px}.update-item{font-size:16px;line-height:1.62}
+.question{display:inline;font-weight:690}.research-list li{grid-template-columns:128px 1fr;gap:15px;border:0;margin:14px 0;padding:0}.rlabel{font-size:12.8px}.rtext{font-size:15.7px}
+.pub-head{display:flex;gap:24px;align-items:flex-end}.all{font-size:13px;color:var(--muted);padding-bottom:4px}.pubs{margin-top:6px}.pub{padding:15px 0 16px;border-top:1px solid var(--line)}.pub:last-child{border-bottom:1px solid var(--line)}
+.pub-title{font-size:16.1px;line-height:1.5}.authors{font-size:14.1px;line-height:1.54}.meta{font-size:13.3px}.plinks a{margin-left:7px}
+@media(max-width:940px){.layout{grid-template-columns:1fr}.nav-links{gap:22px}.nav-links a{font-size:16px}.portrait-shell{width:145px;height:145px}}
+@media(max-width:640px){:root{--frame-gap:14px}.nav-inner{min-height:0}.nav-links{gap:18px}.nav-links a{font-size:14px}.page{padding-top:36px}.portrait-shell{width:108px;height:108px}.section-title{font-size:29px}.research-list li{display:block}.content p{font-size:16px}}
+
+.portrait-fallback{width:100%;height:100%;border-radius:50%;background:#eef2f5;color:#9aa4ad;display:flex;align-items:center;justify-content:center;font-size:42px;font-weight:700}.portrait{width:100%;height:100%;border-radius:50%;object-fit:cover}
+
+.draft-banner{padding:7px 16px;background:#f1f5f9;border-bottom:1px solid #d9e2eb;color:#5f7184;font-size:12px;letter-spacing:.04em;text-align:center;font-weight:650}
+</style></head>
+<body><div class="draft-banner">PREVIEW ONLY · Not published · Proposed paper and news additions</div><header class="site-header"><div class="nav-inner"><div class="brand">Yuji Zhang</div><nav aria-label="Primary navigation" class="nav-links"><a href="#research">Research</a><a href="#publications">Publications</a><a href="#talks">Talks</a><a href="#teaching">Teaching</a><a href="#service">Service</a><a href="#openings">Openings</a></nav></div></header>
+<div class="page"><div class="layout">
+<aside class="sidebar"><div class="portrait-shell"><div class="portrait-fallback">YZ</div><img alt="Yuji Zhang" class="portrait" onerror="this.style.display='none'" src="pic/yjzhang.jpg" style="margin-top:-100%;position:relative"/></div><div class="side-name">Yuji Zhang (张雨季)</div><div class="side-role">Assistant Professor</div><div class="side-role">Computer Science</div><div class="side-affil"><a href="https://www.cuny.edu/">City University of New York</a></div><div class="side-links"><a href="mailto:yuji.zhang@csi.cuny.edu">Email</a><a href="https://twitter.com/Yuji_Zhang_NLP">X (Twitter)</a><a href="https://www.linkedin.com/in/yuji-zhang-29870b2b0">LinkedIn</a><a href="https://scholar.google.com/citations?user=meTtEDcAAAAJ">Google Scholar</a></div></aside>
+<main class="content">
+<section id="about"><h1 class="section-title">About</h1>
+<p>I am an Assistant Professor in the Computer Science Department at the College of Staten Island, City University of New York.</p>
+<p>Before joining the City University of New York, I was a postdoctoral researcher at the University of Illinois Urbana-Champaign, where I was advised by Prof. <a href="https://blender.cs.illinois.edu/hengji.html">Heng Ji</a> and Prof. <a href="https://czhai.cs.illinois.edu/">Chengxiang Zhai</a>. I also worked with Prof. <a href="https://hchadlane.net/">H. Chad Lane</a>.</p>
+<p>My research focuses on reliable and interpretable AI, spanning knowledge, reasoning, and autonomous agents.</p></section>
+<section id="updates"><h2 class="section-title">Recent Updates</h2><div class="openings-highlight" id="openings"><span class="date">[Aug 2026]</span> <strong>Openings</strong>: I am looking for motivated students interested in interpretable, reliable, and trustworthy AI.</div><div class="updates-scroll"><div class="update-item"><span class="date">[Nov 2026]</span> Recent acceptances include <strong>ROUNDS</strong> (ML4H 2026 Proceedings; PMLR forthcoming), <strong>GU</strong> and <strong>MemGuard</strong> (EMNLP 2026), <strong>Agent Foresight</strong> (ACL 2026), <strong>EMCompress</strong> (ACL Findings), <strong>ShortageSim</strong> (AAAI 2026 Oral), <strong>ModelingAgent</strong> and <strong>SafeSwitch</strong> (EMNLP Findings), and classroom-video research (EDM 2026).</div><div class="update-item"><span class="date">[Aug 2026]</span> I am joining the <strong>College of Staten Island, City University of New York</strong> as an Assistant Professor of Computer Science!</div><div class="update-item"><span class="date">[Mar 2026]</span> Call for papers for our <strong>4th Towards Knowledgeable Foundation Models Workshop</strong> at ACL 2026.</div><div class="update-item"><span class="date">[Mar 2026]</span> Invited talk at the <strong>University of Arizona</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div><div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>University of Edinburgh</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div><div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>University of Massachusetts</strong> — <em>Knowledge is Power, But Power Casts Shadows?</em></div><div class="update-item"><span class="date">[Jan 2026]</span> Invited talk at the <strong>UIUC Large NLP Group Seminar</strong> — <em>Knowledge Lifecycle of LLMs</em></div><div class="update-item"><span class="date">[Aug 2025]</span> Organized the 3rd Towards Knowledgeable Foundation Models Workshop at ACL 2025.</div></div></section>
+<section id="research">
+  <h2 class="section-title">Research Interest</h2>
+
+  <p>My research focuses on <strong>reliable and interpretable AI</strong>, particularly the relationship between knowledge, reasoning, and intelligent behavior.</p>
+
+  <p>A fundamental question motivating my research is: <span class="question">What stands between what AI systems know and what they can reliably do?</span> My work explores this question through knowledge overshadowing and updating, interpretable and verifiable reasoning, and reliable autonomous agents.</p>
+
+  <p>Beyond AI systems themselves, I am interested in the reciprocal relationship between AI and human intelligence: how AI shapes human understanding and judgment, and how human reasoning and oversight contribute to AI reliability. My long-term vision is <strong>Reliable AI for Human Flourishing</strong>, where advances in AI and human capabilities reinforce one another.</p>
+</section>
+<section id="publications"><div class="pub-head"><h2 class="section-title">Selected Publications</h2><div class="all">see <a href="https://scholar.google.com/citations?hl=en&amp;user=meTtEDcAAAAJ">Google Scholar</a> for all</div></div><div class="pubs"><article class="pub"><div class="pub-title">ROUNDS: Source-Framed Diagnostic Revision after Multi-Turn Clinical Evidence</div><div class="authors">Jinrui Fang, Runhan Chen, Yining Wu, Jiawei Xu, Xu Yang, Jian Yu, Wenqi Shi, Ying Ding, <span class="me">Yuji Zhang</span></div><div class="meta"><span class="venuechip">ML4H 2026 · Proceedings Track · PMLR forthcoming</span></div></article><article class="pub"><div class="pub-title">Popular Knowledge Propagates More Errors in LLM Knowledge Updating</div><div class="authors"><span class="me">Yuji Zhang</span>*, Weibing Wang*, Cheng Qian, Duo Zhou, Dilek Hakkani-Tür, Kathleen McKeown, Chengxiang Zhai, Heng Ji</div><div class="meta"><span class="venuechip">arXiv Preprint · Under Review</span><span class="plinks"><a href="https://arxiv.org/abs/2609.08067">paper</a></span></div></article><article class="pub"><div class="pub-title">Sparse Autoencoders Are a Shared Coordinate System for Symbolic Matching</div><div class="authors">Xiaocong Yang, Xuanyu Meng, <span class="me">Yuji Zhang</span>, Jiawei Han, ChengXiang Zhai</div><div class="meta"><span class="venuechip">arXiv Preprint · Under Review</span><span class="plinks"><a href="https://arxiv.org/abs/2610.19636">paper</a></span></div></article><article class="pub"><div class="pub-title">Agentic Reasoning for Large Language Models</div><div class="authors">Tianxin Wei, Ting-Wei Li, Zhining Liu, Xuying Ning, Ze Yang, Jiaru Zou, Zhichen Zeng, Ruizhong Qiu, Xiao Lin, Dongqi Fu, Zihao Li, Mengting Ai, Duo Zhou, Wenxuan Bao, Yunzhe Li, Gaotang Li, Cheng Qian, Yu Wang, Xiangru Tang, Yin Xiao, Liri Fang, Hui Liu, Xianfeng Tang, <span class="me">Yuji Zhang</span>, Chi Wang, Jiaxuan You, Heng Ji, Hanghang Tong, Jingrui He</div><div class="meta"><span class="venuechip">TMLR 2026 · Accepted</span><span class="plinks"><a href="https://arxiv.org/abs/2601.12538">paper</a></span></div></article><article class="pub"><div class="pub-title">Proactive AI for Superintelligent Agents</div><div class="authors">Ke Yang, Jiateng Liu, Jize Jiang, Chun Zhao, Yufan Cao, Shanshan Zhong, Yiyang Du, Ruixuan Liu, Xuying Ning, Dean Alvarez, <span class="me">Yuji Zhang</span>, Duo Zhou, Miri Liu, Yuhao Cheng, Hanyang Chen, Rui Yang, Zifeng Wang, Hanghang Tong, Jingrui He, Chenyan Xiong, Chen-Yu Lee, Jiawei Han, ChengXiang Zhai</div><div class="meta"><span class="venuechip">2026 Research Manuscript · Under Review</span><span class="plinks"><a href="https://research.google/pubs/proactive-ai-for-superintelligent-agents/">paper</a></span></div></article><article class="pub"><div class="pub-title">Benchmarking Multi-turn Medical Diagnosis: Hold, Lure, and Self-correction</div><div class="authors">Jinrui Fang, Runhan Chen, Xu Yang, Jian Yu, Jiawei Xu, Ashwin Vinod, Wenqi Shi, Tianlong Chen, Heng Ji, Chengxiang Zhai, Ying Ding†, <span class="me">Yuji Zhang</span>†</div><div class="meta"><span class="venuechip">Preprint</span><span class="plinks"><a href="https://arxiv.org/abs/2604.04325">paper</a></span></div></article><article class="pub"><div class="pub-title">Atomic Reasoning for Scientific Table Claim Verification</div><div class="authors"><span class="me">Yuji Zhang</span>, Qingyun Wang, Cheng Qian, Jiateng Liu, Chenkai Sun, Denghui Zhang, Tarek Abdelzaher, Chengxiang Zhai, Preslav Nakov, Heng Ji</div><div class="meta"><span class="venuechip">Preprint</span><span class="plinks"><a href="https://arxiv.org/abs/2506.06972">paper</a></span></div></article><article class="pub"><div class="pub-title">The Law of Knowledge Overshadowing: Towards Understanding, Predicting, and Preventing LLM Hallucination</div><div class="authors"><span class="me">Yuji Zhang</span>, Sha Li, Cheng Qian, Jiateng Liu, Pengfei Yu, Yi R. Fung, Chi Han, Kathleen McKeown, Chengxiang Zhai, Manling Li, Heng Ji</div><div class="meta"><span class="venuechip">Findings of ACL 2025</span><span class="plinks"><a href="https://arxiv.org/abs/2502.16143">paper</a></span></div></article><article class="pub"><div class="pub-title">Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</div><div class="authors"><span class="me">Yuji Zhang</span>, Sha Li, Jiateng Liu, Pengfei Yu, Yi R. Fung, Jing Li, Manling Li, Heng Ji</div><div class="meta"><span class="venuechip">Preprint</span><span class="plinks"><a href="https://arxiv.org/abs/2407.08039">paper</a></span></div></article><article class="pub"><div class="pub-title">Geometric-disentanglement Unlearning</div><div class="authors">Duo Zhou*, <span class="me">Yuji Zhang</span>*, Tianxin Wei, Ruizhong Qiu, Ke Yang, Xiao Lin, Cheng Qian, Jingrui He, Hanghang Tong, Heng Ji, Huan Zhang</div><div class="meta"><span class="venuechip">EMNLP 2026</span><span class="plinks"><a href="https://arxiv.org/abs/2511.17100">paper</a></span></div></article><article class="pub"><div class="pub-title">MemGuard: Preventing Memory Contamination in Long-Term Memory-Augmented Large Language Models</div><div class="authors">Hyeonjeong Ha, Jeonghwan Kim, Cheng Qian, Jiayu Liu, William M. Campbell, Yue Wu, <span class="me">Yuji Zhang</span>, Kathleen McKeown, Dilek Hakkani-Tur, Heng Ji</div><div class="meta"><span class="venuechip">EMNLP 2026</span><span class="plinks"><a href="https://arxiv.org/abs/2605.28009">paper</a></span></div></article><article class="pub"><div class="pub-title">ModelingAgent: Bridging LLMs and Mathematical Modeling for Real-World Challenges</div><div class="authors">Cheng Qian, Hongyi Du, Hongru Wang, Xiusi Chen, <span class="me">Yuji Zhang</span>, Avirup Sil, Chengxiang Zhai, Kathleen McKeown, Heng Ji</div><div class="meta"><span class="venuechip">Findings of EMNLP 2025</span><span class="plinks"><a href="https://aclanthology.org/anthology-files/pdf/findings/2025.findings-emnlp.85.pdf">paper</a></span></div></article><article class="pub"><div class="pub-title">ShortageSim: Simulating Drug Shortages under Information Asymmetry</div><div class="authors">Mingxuan Cui*, Yilan Jiang*, Duo Zhou*, Cheng Qian, <span class="me">Yuji Zhang</span>†, Qiong Wang†</div><div class="meta"><span class="venuechip">AAAI 2026 · Oral</span><span class="plinks"><a href="https://arxiv.org/abs/2509.01813">paper</a></span></div></article></div></section>
+<section id="talks"><h2 class="section-title">Invited Talks &amp; Tutorials</h2>
+<div class="talk"><strong>Knowledge is Power, But Power Casts Shadows?</strong> — City University of New York · May 2026</div>
+<div class="talk"><strong>Knowledge is Power, But Power Casts Shadows?</strong> — University of Arizona · Mar 2026</div>
+<div class="talk"><strong>The Knowledge Lifecycle of LLMs: Memorization, Editing, and Beyond</strong> — UIUC Large NLP Group Seminar · Jan 2026</div>
+<div class="talk"><strong>Knowledge is Power, But Power Casts Shadows?</strong> — University of Edinburgh · Jan 2026</div>
+<div class="talk"><strong>Knowledge is Power, But Power Casts Shadows?</strong> — University of Massachusetts · Jan 2026</div>
+<div class="talk"><strong>Towards Knowledgeable Foundation Models</strong> — NICE Academic Platform · Nov 2025</div>
+<div class="talk"><strong>Robust and Trustworthy Language Models</strong> — Northeastern University · Oct 2025</div>
+<div class="talk"><strong>Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</strong> — Ploutos Academic Platform · May 2025</div>
+<div class="talk"><strong>Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</strong> — The University of Texas at Austin · Mar 2025 · Invited three-day academic visit</div>
+<div class="talk"><strong>The Lifecycle of Knowledge in Large Language Models: Memorization, Editing, and Beyond</strong> — AAAI 2025 Tutorial · Organizer and Speaker · Mar 2025</div>
+<div class="talk"><strong>Knowledge Overshadowing Causes Amalgamated Hallucination in Large Language Models</strong> — Beijing Academy of Artificial Intelligence · Aug 2024</div>
+</section>
+<section id="teaching"><h2 class="section-title">Teaching</h2>
+<div class="experience"><strong>Instructor · CSC 733: Natural Language Processing</strong><div class="subtle">College of Staten Island, CUNY · Fall 2026</div></div>
+<div class="experience"><strong>Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</strong><div class="subtle">University of Illinois Urbana-Champaign · Fall 2026</div></div><div class="experience"><strong>Guest Lecturer · CS 496: Agent AI</strong><div class="subtle">Northwestern University · Spring 2026</div></div>
+
+<div class="experience"><strong>Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</strong><div class="subtle">University of Illinois Urbana-Champaign · Spring 2026</div></div>
+<div class="experience"><strong>Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</strong><div class="subtle">University of Illinois Urbana-Champaign · Fall 2025</div></div>
+<div class="experience"><strong>Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</strong><div class="subtle">University of Illinois Urbana-Champaign · Spring 2025</div></div>
+<div class="experience"><strong>Instructor · CS 591 BAI: Biologically Plausible Artificial Intelligence</strong><div class="subtle">University of Illinois Urbana-Champaign · Fall 2024</div></div>
+<div class="experience"><strong>Teaching Assistant · COMP 3134: Business Intelligence and CRM</strong><div class="subtle">The Hong Kong Polytechnic University · Fall 2023</div></div>
+<div class="experience"><strong>Teaching Assistant · COMP 5511: Artificial Intelligence Concepts</strong><div class="subtle">The Hong Kong Polytechnic University · Spring 2023</div></div>
+<div class="experience"><strong>Teaching Assistant · COMP 5511: Artificial Intelligence Concepts</strong><div class="subtle">The Hong Kong Polytechnic University · Fall 2022</div></div>
+<div class="experience"><strong>Teaching Assistant · COMP 4141: Crowdfunding and e-Finance</strong><div class="subtle">The Hong Kong Polytechnic University · Spring 2022</div></div>
+<div class="experience"><strong>Teaching Assistant · COMP 1433: Introduction to Data Analytics</strong><div class="subtle">The Hong Kong Polytechnic University · Fall 2021</div></div>
+<div class="experience"><strong>Teaching Assistant · COMP 1433: Introduction to Data Analytics</strong><div class="subtle">The Hong Kong Polytechnic University · Spring 2021</div></div>
+</section>
+<section id="service"><h2 class="section-title">Professional Service</h2><ul class="service-list">
+<li class="service-item"><div class="item-title">Organizer · Workshop on Towards Knowledgeable Foundation Models</div><div class="item-meta">ACL 2025; continuing workshop organization for ACL 2026</div></li>
+<li class="service-item"><div class="item-title">Session Chair · Language Models and Interpretability</div><div class="item-meta">ACL 2025</div></li>
+<li class="service-item"><div class="item-title">Session Chair · Language Modeling</div><div class="item-meta">ACL 2025</div></li>
+<li class="service-item"><div class="item-title">Area Chair</div><div class="item-meta">ACL 2026 · LREC 2026</div></li>
+<li class="service-item"><div class="item-title">Conference Reviewer</div><div class="item-meta">NeurIPS · ICLR · ACL · EMNLP · NAACL · KDD</div></li>
+</ul></section>
+<section id="experience"><h2 class="section-title">Research Experience</h2>
+<div class="experience"><strong>University of Illinois Urbana-Champaign</strong><div class="subtle">Postdoctoral Researcher · 2024–2026</div></div>
+<div class="experience"><strong>University of Illinois Urbana-Champaign</strong><div class="subtle">Visiting Ph.D. Student · 2023–2024</div></div>
+<div class="experience"><strong>The Hong Kong Polytechnic University</strong><div class="subtle">Ph.D. in Computing · 2020–2024</div></div>
+<div class="experience"><strong>Dartmouth College</strong><div class="subtle">Research Intern · 2019–2020</div></div>
+</section><div class="footer">Yuji Zhang · Last updated November 2026. Selected publications are grouped by publication status.</div>
+</main></div></div></body></html>
